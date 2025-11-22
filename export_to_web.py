@@ -3,11 +3,13 @@
 Export concert database from Firestore to JSON format for static website
 """
 import sys, json
-import firebase_admin
-from firebase_admin import credentials, firestore
+from collections import defaultdict
 from pathlib import Path
 from datetime import datetime
-from collections import defaultdict
+import firebase_admin
+from firebase_admin import credentials, firestore
+
+
 
 
 def init_firebase():
