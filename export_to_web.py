@@ -2,7 +2,8 @@
 """
 Export concert database from Firestore to JSON format for static website
 """
-import sys, json
+import sys
+import json
 from collections import defaultdict
 from pathlib import Path
 from datetime import datetime
