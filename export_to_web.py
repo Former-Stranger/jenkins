@@ -2,14 +2,12 @@
 """
 Export concert database from Firestore to JSON format for static website
 """
-
+import sys, json
 import firebase_admin
 from firebase_admin import credentials, firestore
-import json
 from pathlib import Path
 from datetime import datetime
 from collections import defaultdict
-import sys
 
 
 def init_firebase():
