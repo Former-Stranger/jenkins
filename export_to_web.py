@@ -105,7 +105,8 @@ def export_to_json(output_dir):
                    for a in concert_data.get('artists', [])]
 
         # Get photos for this concert
-        photos_query = db.collection('concert_photos').where('concert_id', '==', concert_id).order_by('uploaded_at', direction=firestore.Query.DESCENDING)
+        photos_query = db.collection('concert_photos').where('concert_id', /
+        '==', concert_id).order_by('uploaded_at', direction=firestore.Query.DESCENDING)
         photos_docs = photos_query.stream()
 
         photos = []
@@ -186,7 +187,8 @@ def export_to_json(output_dir):
 
             # Sort setlists: openers first, then headliners, then by artist name
             sorted_setlists = sorted(setlist_list,
-                                    key=lambda s: (role_priority.get(artist_roles.get(s.get('artist_name'), 'headliner'), 2),
+                key=lambda s: (role_priority.get(artist_roles.get /
+                                                 (s.get('artist_name'), 'headliner'), 2),
                                                   s.get('artist_name', '')))
 
             for setlist_data in sorted_setlists:
@@ -598,7 +600,7 @@ def export_to_json(output_dir):
                         'venue': concert_data.get('venue_name', ''),
                         'city': concert_data.get('city', ''),
                         'state': concert_data.get('state', ''),
-                        'role': artist.get('role', 'headliner'),  # Include role to show on artist page
+                        'role': artist.get('role', 'headliner'),  
                         'has_setlist': concert_data.get('has_setlist', False),
                         'opening_song': concert_data.get('opening_song'),
                         'closing_song': concert_data.get('closing_song')
