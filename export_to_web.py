@@ -57,7 +57,8 @@ def export_to_json(output_dir):
         # Get primary artist names for display
         artists_list = data.get('artists', [])
         # Filter to headliners and festival performers only
-        primary_artists = [a for a in artists_list if a.get('role') in ['headliner', 'festival_performer']]
+        primary_artists = [a for a in artists_list /
+        if a.get('role') in ['headliner', 'festival_performer']]
         artist_names = ', '.join([a.get('artist_name', '') for a in primary_artists])
 
         concerts_list.append({
