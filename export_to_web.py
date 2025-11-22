@@ -105,7 +105,7 @@ def export_to_json(output_dir):
                    for a in concert_data.get('artists', [])]
 
         # Get photos for this concert
-        photos_query = db.collection('concert_photos').where('concert_id', /
+        photos_query = db.collection('concert_photos').where('concert_id', \
         '==', concert_id).order_by('uploaded_at', direction=firestore.Query.DESCENDING)
         photos_docs = photos_query.stream()
 
@@ -187,7 +187,7 @@ def export_to_json(output_dir):
 
             # Sort setlists: openers first, then headliners, then by artist name
             sorted_setlists = sorted(setlist_list,
-                key=lambda s: (role_priority.get(artist_roles.get /
+                key=lambda s: (role_priority.get(artist_roles.get \
                                                  (s.get('artist_name'), 'headliner'), 2),
                                                   s.get('artist_name', '')))
 
