@@ -264,7 +264,7 @@ def export_to_json(output_dir):
     # Write concerts.json with updated hasSetlist flags
     # Before (pylint warning)
     with open(output_dir / 'concerts.json', 'w', encoding='utf-8') as f:
-    json.dump(concerts_list, f, indent=2)
+        json.dump(concerts_list, f, indent=2)
 
     # 3. Export artists list
     print("\n3. Exporting artists...")
